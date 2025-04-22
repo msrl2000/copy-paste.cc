@@ -16,7 +16,7 @@ export const Network: React.FC<NetworkProps> = observer(
    const everyoneClient: ClientModel = {
       clientId: 'everyone',
       isLocal: false,
-      clientName: 'Everyone',
+      clientName: 'כולם',
     };
     const clients = networkStore.clients;
 
