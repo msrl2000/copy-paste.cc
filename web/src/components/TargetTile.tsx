@@ -39,7 +39,7 @@ export const TargetTile = observer(
           style={{
             backgroundColor:
 		    client.clientId !== 'everyone'
-		   ? uuidToColor(client.clientId),
+		   ? uuidToColor(client.clientId)
 		  : undefined,
           }}
           ref={ref}
