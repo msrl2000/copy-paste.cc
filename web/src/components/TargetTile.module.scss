@@ -1,0 +1,70 @@
+.tile {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  background-image: var(--dark-gradient);
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  text-shadow: none;
+
+  
+
+  svg {
+    font-size: 1px;
+  }
+
+  .icons {
+    position: absolute;
+    bottom: 2px;
+    font-size: 0;
+    inset-inline: 0;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      font-size: 16px;
+      fill: rgba(0, 0, 0, 0.15);
+      margin-inline: 2px;
+    }
+  }
+
+  &.small {
+    width: 20px;
+    height: 20px;
+	--name-font-size: 0.4rem;
+	word-break: break-word;
+  }
+
+  &.medium {
+    width: 40px;
+    height: 40px;
+	--name-font-size: 0.6rem;
+	word-break: break-word;
+  }
+
+  &.big {
+    width: 75px;
+    height: 75px;
+	--name-font-size: 0.8rem;
+	word-break: break-word;
+  }
+
+  &.bignoname {
+    width: 75px;
+    height: 75px;
+  }
+
+}
+.name {
+  pointer-events: none;
+  text-align: center;
+  width: 75px;
+  font-size: var(--name-font-size);
+  color: var(--color-fg);
+  word-break: break-word;
+}
