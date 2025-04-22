@@ -1,0 +1,19 @@
+version: '3'
+services:
+  copy-paste:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        - VITE_APP_NAME=${APP_NAME}
+    environment:
+      - WS_HOST=0.0.0.0
+      - WS_APP_NAME=${APP_NAME}
+      - WS_USE_X_FORWARDED_FOR=1
+      - WS_REQUIRE_CRYPTO=1
+      - TURN_MODE=hmac
+      - TURN_SERVER=turn:copy-paste.cc:3478
+      - TURN_USERNAME=filedrop
+      - TURN_SECRET=${TURN_SECRET}
+    ports:
+      - '${PORT}:5000'
