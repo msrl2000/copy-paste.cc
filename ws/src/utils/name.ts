@@ -1,5 +1,5 @@
 const adjectives: string[] = [
-  'Bamboo',
+  'גזר',
   'כרוב',
   'קקטוס',
   'אגוז',
