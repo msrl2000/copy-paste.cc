@@ -10,7 +10,7 @@ import { applicationStore, networkStore } from '../../stores/index.js';
 import { LocalNetworks } from '../LocalNetworks/index.js';
 import { Button } from '../../components/Button.js';
 import { Toggle } from '../../components/Toggle.js';
-import { mimeToExtension } from '../../utils/file.js';
+import { readClipboardFiles } from '../../utils/clipboard.js';
 
 export const NetworkSection: React.FC = observer(() => {
   const clients = networkStore.clients;
@@ -45,18 +45,9 @@ export const NetworkSection: React.FC = observer(() => {
                 sendFromClipboard
                   ? async clientId => {
                       try {
-                        const items = await navigator.clipboard.read();
-                        if (items?.length) {
-                          for (const item of items) {
-                            const blob = await item.getType(item.types[0]);
-                            const file = new File(
-                              [blob],
-                              `clipboard${mimeToExtension(blob.type)}`,
-                              { type: blob.type }
-                            );
-
-                            networkStore.createTransfer(file, clientId);
-                          }
+                        const files = await readClipboardFiles();
+                        for (const file of files) {
+                          networkStore.createTransfer(file, clientId);
                         }
                       } catch {}
                     }
