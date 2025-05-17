@@ -17,6 +17,7 @@ import { TransfersSection } from '../sections/Transfers/index.js';
 import { ChatSection } from '../sections/Chat/index.js';
 import { MobileTabs } from '../sections/MobileTabs/index.js';
 import { SettingsSection } from '../sections/Settings/index.js';
+import { QrScannerModal } from '../modals/QrScannerModal.js';
 
 const ConnectSection = React.lazy(() => import('../sections/Connect/index.js'));
 
@@ -121,6 +122,13 @@ export const Home: React.FC = observer(() => {
         isOpen={modal === 'connect'}
       >
         <ConnectSection />
+      </Modal>
+      <Modal
+        onClose={() => applicationStore.closeModal()}
+        title={t('qrScanner.title')}
+        isOpen={modal === 'scan'}
+      >
+        <QrScannerModal onClose={() => applicationStore.closeModal()} />
       </Modal>
       <div className={clsx('mobileFlex', styles.home)}>
         <div className={clsx({ mobileHidden: tab !== 'transfers' })}>
