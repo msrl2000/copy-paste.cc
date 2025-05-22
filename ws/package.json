@@ -11,7 +11,7 @@
     "dotenv-flow": "^4.0.0",
     "fastify": "^4.21.0",
     "joi": "^17.6.0",
-    "ws": "^8.6.0"
+    "ws": "^8.17.1"
   },
   "scripts": {
     "start": "tsx src/index.ts",
